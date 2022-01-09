@@ -27,4 +27,12 @@ export default {
     '@nuxtjs/eslint-module',
     ['@nuxtjs/dotenv', { systemvars: true }],
   ],
+  // Tailwind config
+  css: ['~/assets/sass/app.scss'],
+  build: {
+    extractCSS: true,
+    loaders: {
+      limit: 0,
+    },
+  },
 }

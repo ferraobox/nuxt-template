@@ -3,5 +3,25 @@
   "vetur.validation.template": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#42026b",
+    "activityBar.activeBorder": "#7d4d02",
+    "activityBar.background": "#42026b",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#7d4d02",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#42026b",
+    "statusBar.background": "#230139",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#42026b",
+    "statusBarItem.remoteBackground": "#230139",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#230139",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#23013999",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#230139"
 }

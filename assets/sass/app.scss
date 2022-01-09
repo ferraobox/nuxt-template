@@ -109,14 +109,13 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
 
   &-user-info {
     .user-card {
-      padding: 1.5rem;
       border-radius: 16px;
       background: linear-gradient(85deg, #508af7, #b0c6f0);
       color: rgb(0, 0, 0);
       display: flex;
       transition: 0.2s;
-      margin: 1em;
-      padding: 1em;
+      margin: 0.5em;
+      padding: 0.8em;
     }
 
     img {
@@ -125,7 +124,13 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       @apply mr-5 w-24 rounded-2xl;
     }
 
+    .user-data {
+      padding: 0.8em;
+    }
+
     .icon {
+      padding: 0em;
+      margin: 0em;
       width: 1.5em;
       height: 1.5em;
     }

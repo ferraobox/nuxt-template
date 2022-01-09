@@ -4,7 +4,7 @@
       <div>
         <img :src="user.image" alt="Home user image" />
       </div>
-      <div>
+      <div class="user-data">
         <b>{{ user.name }}</b
         ><br />
         <img src="/images/icons/group.svg" class="icon" /> Joined

@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <div class="app-double-column app-property-details">
       <div>
-        <h3>Summary</h3>
+        <h3><img src="/images/icons/quote.svg" class="icon" /></h3>
         <p class="app-summary">{{ home.description }}</p>
       </div>
       <div>

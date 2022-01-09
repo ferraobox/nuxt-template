@@ -1,6 +1,6 @@
 <template>
   <div>
-    Results for: {{ label }}<br>
+    Results for: {{ label }}<br />
     <div ref="map" style="height: 800px; width: 800px; float: right" />
     <div v-if="homes.length > 0">
       <nuxt-link
@@ -15,9 +15,7 @@
         />
       </nuxt-link>
     </div>
-    <div v-else>
-      ...No results found
-    </div>
+    <div v-else>...No results found</div>
   </div>
 </template>
 <script>

@@ -1,6 +1,6 @@
 <template>
   <span>
-    {{ displayText }} <br>
+    {{ displayText }} <br />
     <button
       v-if="isTooLong && !isExpanded"
       class="link"

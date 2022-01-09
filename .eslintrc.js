@@ -4,9 +4,10 @@ module.exports = {
     node: true,
     browser: true,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended'],
-  plugins: ['jest'],
+  extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
+  plugins: ['jest', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/multi-word-component-names': 'off',
     'vue/max-attributes-per-line': 'off',

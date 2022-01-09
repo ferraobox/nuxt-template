@@ -2,7 +2,7 @@
   <div style="text-align: center">
     <img
       src="https://www.elegantthemes.com/blog/wp-content/uploads/2016/03/500-internal-server-error-featured-image-1.png"
-    /><br />
+    ><br>
     <h1>Sorry... An error has ocurred</h1>
     <h3>- Description -</h3>
     <h4>{{ error.message }}</h4>
@@ -11,16 +11,16 @@
 </template>
 <script>
 export default {
-  head() {
-    return {
-      title: 'Error',
-    }
-  },
   props: {
     error: {
       type: Object,
       required: true,
     },
+  },
+  head() {
+    return {
+      title: 'Error',
+    }
   },
 }
 </script>

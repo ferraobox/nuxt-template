@@ -6,9 +6,9 @@
       :key="home.objectID"
       style="float: Left; margin: 10px"
     >
-      <nuxt-link :to="`/home/${home.objectID}`"
-        ><home-card :home="home"
-      /></nuxt-link>
+      <nuxt-link :to="`/home/${home.objectID}`">
+        <home-card :home="home" />
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -16,6 +16,16 @@
 <script>
 //By default the vue-loader will look for a file named index.js
 export default {
+  async asyncData({ $dataApi, error }) {
+    const homesResponse = await $dataApi.getHomes()
+    if (!homesResponse.ok) {
+      return error({
+        statusCode: homesResponse.status,
+        message: homesResponse.statusText,
+      })
+    }
+    return { homes: homesResponse.json }
+  },
   head() {
     return {
       title: 'Homepage',
@@ -27,16 +37,6 @@ export default {
         },
       ],
     }
-  },
-
-  async asyncData({ $dataApi, error }) {
-    const homesResponse = await $dataApi.getHomes()
-    if (!homesResponse.ok)
-      return error({
-        statusCode: homesResponse.status,
-        message: homesResponse.statusText,
-      })
-    return { homes: homesResponse.json }
   },
 }
 </script>

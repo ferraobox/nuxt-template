@@ -1,20 +1,20 @@
 <template>
   <span>
-    {{ displayText }} <br />
+    {{ displayText }} <br>
     <button
       v-if="isTooLong && !isExpanded"
-      @click="isExpanded = true"
       class="link"
       type="button"
+      @click="isExpanded = true"
     >
       show comment
     </button>
 
     <button
       v-if="isTooLong && isExpanded"
-      @click="isExpanded = false"
       class="link"
       type="button"
+      @click="isExpanded = false"
     >
       read less
     </button>
@@ -34,6 +34,13 @@ export default {
     },
   },
 
+  data() {
+    return {
+      isExpanded: false,
+      chunks: [],
+    }
+  },
+
   computed: {
     isTooLong() {
       return this.chunks.length === 2
@@ -47,6 +54,10 @@ export default {
     },
   },
 
+  created() {
+    this.chunks = this.getChunks()
+  },
+
   methods: {
     getChunks() {
       const position = this.text.indexOf(' ', this.target)
@@ -56,17 +67,6 @@ export default {
         return [this.text.substring(0, position), this.text.substring(position)]
       }
     },
-  },
-
-  data() {
-    return {
-      isExpanded: false,
-      chunks: [],
-    }
-  },
-
-  created() {
-    this.chunks = this.getChunks()
   },
 }
 </script>

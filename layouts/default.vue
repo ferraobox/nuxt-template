@@ -1,8 +1,10 @@
 <template>
   <div>
     <header style="background-color: #eee">
-      <nuxt-link to="/">Home</nuxt-link>
-      <input type="text" ref="citySearch" @changed="changed" />
+      <nuxt-link to="/">
+        Home
+      </nuxt-link>
+      <input ref="citySearch" type="text" @changed="changed">
     </header>
     <nuxt />
   </div>

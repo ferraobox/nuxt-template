@@ -10,14 +10,14 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
+    "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
     "prepare": "husky install",
     "test": "jest"
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint --ext .js,.ts --fix --max-warnings 0"
+      "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 ."
     ]
   },
   "config": {

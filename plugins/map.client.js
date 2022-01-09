@@ -1,3 +1,5 @@
+import GoogleapisMapViewStyles from '~/data/configuration/google-maps/googleapis.map.view.styles.json'
+
 export default function (context, inject) {
   const markerIcon = 'https://maps.gstatic.com/mapfiles/transparent.png'
   const googleApiFeatures = '&libraries=places'
@@ -69,13 +71,7 @@ export default function (context, inject) {
       center: new window.google.maps.LatLng(lat, lng),
       disableDefaultUI: true,
       zoomControl: true,
-      styles: [
-        {
-          featureType: 'poi.business',
-          elementType: 'labels.icon',
-          stylers: [{ visibility: 'off' }],
-        },
-      ],
+      styles: GoogleapisMapViewStyles,
     }
     // Creating map web element
     const map = new window.google.maps.Map(canvas, mapOptions)

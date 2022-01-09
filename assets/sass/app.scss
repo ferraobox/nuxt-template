@@ -19,6 +19,8 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
 
   &-padded-vertical {
     @apply py-20;
+    margin: 0;
+    padding: 0;
   }
 
   &-background-grey {

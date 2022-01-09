@@ -1,14 +1,10 @@
 <template>
-  <div class="app-section">
-    <div class="app-wrapper">
-      <div class="app-masonry">
-        <div
-          v-for="image in images"
-          :key="image"
-          :style="`background-image: url(${image})`"
-        ></div>
-      </div>
-    </div>
+  <div class="app-masonry">
+    <div
+      v-for="image in images"
+      :key="image"
+      :style="`background-image: url(${image})`"
+    ></div>
   </div>
 </template>
 <script>

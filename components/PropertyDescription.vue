@@ -1,15 +1,18 @@
 <template>
-  <div class="app-wrapper">
-    <div class="app-double-column app-property-details">
-      <div>
-        <h3><img src="/images/icons/quote.svg" class="icon" /></h3>
-        <p class="app-summary">{{ home.description }}</p>
-      </div>
-      <div>
-        <div ref="map" style="height: 100%; width: 100%" />
+  <div class="app-double-column">
+    <div class="app-padded-vertical">
+      <h2><img src="/images/icons/quote.svg" class="icon" /></h2>
+      <p class="app-summary">{{ home.description }}</p>
+    </div>
+    <div class="app-padded-vertical">
+      <div
+        v-for="(feature, index) in home.features"
+        :key="index"
+        class="app-tag"
+      >
+        {{ feature }}
       </div>
     </div>
-    <br />
   </div>
 </template>
 <script>
@@ -19,12 +22,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  mounted() {
-    this.$maps.showMap(this.$refs.map, {
-      lat: this.home._geoloc.lat,
-      lng: this.home._geoloc.lng,
-    })
   },
 }
 </script>

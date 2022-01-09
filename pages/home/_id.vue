@@ -1,17 +1,14 @@
 <template>
   <div class="app-container">
-    <div>
-      <property-gallery :images="home.images" />
-      <property-details :home="home" />
-      <property-description :home="home" />
-    </div>
-
-    <div class="app-property-details">
-      <h3>Home user</h3>
-      <user-card :user="user" />
-
-      <h3>Reviews</h3>
-      <review-list :reviews="reviews" />
+    <div class="app-wrapper">
+      <div class="app-property-details">
+        <property-gallery :images="home.images" />
+        <property-details :home="home" />
+        <property-description :home="home" />
+        <property-map :home="home" />
+        <property-reviews :reviews="reviews" />
+        <property-host :user="user" />
+      </div>
     </div>
   </div>
 </template>

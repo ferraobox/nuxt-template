@@ -1,7 +1,6 @@
 .nuxt
 node_modules
 dist
-data
 logs
 log
 .env

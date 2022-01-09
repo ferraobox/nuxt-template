@@ -157,6 +157,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-subtitle {
+    padding-top: 2em;
     font-stretch: condensed;
     @apply text-east-bay text-3xl font-medium pb-8;
   }
@@ -178,6 +179,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-testimonials {
+    padding-top: 2em;
     @apply flex flex-wrap;
 
     > div {
@@ -441,10 +443,14 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
 
   &-host {
     &-header {
+      padding: 1em;
+      padding-bottom: 0em;
+      margin: 1em;
+
       @apply flex items-center mb-5;
 
       img {
-        @apply mr-5 w-24 rounded-lg;
+        @apply mr-5 w-24 rounded-t-lg;
       }
 
       .app-host-name {
@@ -467,7 +473,15 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
     }
 
     &-description {
-      @apply text-trout mt-8;
+      padding: 1em;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      color: #2c5488d7;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      text-align: center;
     }
   }
 

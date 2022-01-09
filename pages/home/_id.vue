@@ -5,9 +5,9 @@
         <property-gallery :images="home.images" />
         <property-details :home="home" />
         <property-description :home="home" />
+        <property-host :user="user" />
         <property-map :home="home" />
         <property-reviews :reviews="reviews" />
-        <property-host :user="user" />
       </div>
     </div>
   </div>

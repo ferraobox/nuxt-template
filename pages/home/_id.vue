@@ -1,32 +1,11 @@
 <template>
   <div>
-    <h1>{{ home.title }}</h1>
-    <div style="display: flex">
-      <img
-        v-for="image in home.images"
-        :key="image"
-        :src="image"
-        width="200"
-        height="150"
-      />
+    <div class="app-container">
+      <property-gallery :images="home.images" />
+      <property-details :home="home" />
+      <property-description :home="home" />
     </div>
-    <h2>Description:</h2>
-    ${{ home.pricePerNight }} - nigth <br />
 
-    <img src="/images/marker.svg" alt="" width="20" height="20" />
-    {{ home.location.city }} - {{ home.location.address }} -
-    {{ home.location.state }}<br />
-
-    <img src="/images/star.svg" alt="" width="20" height="20" />
-    {{ home.reviewValue }} <br />
-
-    * Guests - {{ home.guests }}<br />
-    * Rooms - {{ home.bedrooms }}<br />
-    * Beds - {{ home.beds }}<br />
-    * Baths - {{ home.bathrooms }}<br />
-    {{ home.description }}
-    <div ref="map" style="height: 800px; width: 800px" />
-    <br />
     <h3>Reviews</h3>
     <div v-for="review in reviews" :key="review.objectID">
       <img :src="review.reviewer.image" alt="Profile image" /><br />
@@ -77,12 +56,6 @@ export default {
     return {
       title: this.home.title,
     }
-  },
-  mounted() {
-    this.$maps.showMap(this.$refs.map, {
-      lat: this.home._geoloc.lat,
-      lng: this.home._geoloc.lng,
-    })
   },
 
   methods: {

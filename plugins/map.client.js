@@ -2,7 +2,7 @@ export default function (context, inject) {
   const markerIcon = 'https://maps.gstatic.com/mapfiles/transparent.png'
   const googleApiFeatures = '&libraries=placess'
   const googleApiCallBackFunction = '&callback=initGoogleMaps'
-  const googleApiURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.ALGOLIA_API_TOKEN}${googleApiFeatures}${googleApiCallBackFunction}`
+  const googleApiURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_API_KEY}${googleApiFeatures}${googleApiCallBackFunction}`
   let isLoaded = false
   let waiting = []
 

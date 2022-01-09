@@ -1,6 +1,6 @@
 export default function (context, inject) {
-  const appid = process.env.GOOGLE_API_ID
-  const apiKey = process.env.GOOGLE_API_KEY
+  const appid = process.env.ALGOLIA_APP_ID
+  const apiKey = process.env.ALGOLIA_API_TOKEN
   const headers = {
     'X-Algolia-API-Key': apiKey,
     'X-Algolia-Application-Id': appid,

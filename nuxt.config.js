@@ -24,12 +24,7 @@ export default {
   modules: [],
   buildModules: [
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/eslint-module',
     ['@nuxtjs/dotenv', { systemvars: true }],
-    [
-      '@nuxtjs/eslint-module',
-      {
-        eslintPath: './.eslintrc.js',
-      },
-    ],
   ],
 }

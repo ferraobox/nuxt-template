@@ -5,3 +5,4 @@ data
 logs
 log
 .env
+.eslintcache

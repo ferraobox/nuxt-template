@@ -3,20 +3,20 @@
     {{ displayText }} <br />
     <button
       v-if="isTooLong && !isExpanded"
-      class="link"
+      class="comment"
       type="button"
       @click="isExpanded = true"
     >
-      show comment
+      show
     </button>
 
     <button
       v-if="isTooLong && isExpanded"
-      class="link"
+      class="comment"
       type="button"
       @click="isExpanded = false"
     >
-      read less
+      hide
     </button>
   </span>
 </template>
@@ -70,16 +70,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-.link {
-  color: blue;
-  background-color: white;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.link:focus {
-  border: none;
-  outline: none;
-}
-</style>

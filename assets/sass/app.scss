@@ -107,6 +107,30 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
     }
   }
 
+  &-user-info {
+    .user-card {
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: linear-gradient(85deg, #508af7, #b0c6f0);
+      color: rgb(0, 0, 0);
+      display: flex;
+      transition: 0.2s;
+      margin: 1em;
+      padding: 1em;
+    }
+
+    img {
+      display: flex;
+      float: left;
+      @apply mr-5 w-24 rounded-2xl;
+    }
+
+    .icon {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+
   &-hero {
     background-image: url(/images/photos/beach.jpg);
     @apply h-148 bg-cover rounded-3xl flex items-end justify-center pb-12;
@@ -323,7 +347,6 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       flex-direction: column;
       transition: 0.2s;
       margin: 1em;
-      padding: 1em;
     }
 
     .app-price {
@@ -344,6 +367,40 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
 
     &-footer {
       @apply border-t border-dashed border-dusty-gray pt-12 mt-14 pb-18 text-xl font-medium text-east-bay;
+    }
+  }
+
+  &-reviews {
+    .review-card {
+      border-radius: 16px;
+      background: linear-gradient(85deg, #b0c6f0, #508af7);
+      color: rgb(0, 0, 0);
+      display: flex;
+      transition: 0.2s;
+      margin: 1em;
+      padding: 1em;
+    }
+
+    .image-container {
+      margin: 0.3em;
+      padding: 0.3em;
+    }
+
+    button.comment {
+      color: rgb(99, 99, 99);
+      background-color: rgba(255, 255, 255, 0.397);
+      cursor: pointer;
+      @apply mr-5 w-24 rounded-full;
+    }
+    button.comment:hover {
+      color: rgb(199, 197, 197);
+      background-color: rgba(37, 36, 36, 0.63);
+    }
+
+    img {
+      display: flex;
+      float: left;
+      @apply mr-5 w-24 rounded-full;
     }
   }
 

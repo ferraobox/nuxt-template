@@ -1,26 +1,18 @@
 <template>
-  <div>
-    <div class="app-container">
+  <div class="app-container">
+    <div>
       <property-gallery :images="home.images" />
       <property-details :home="home" />
       <property-description :home="home" />
     </div>
 
-    <h3>Reviews</h3>
-    <div v-for="review in reviews" :key="review.objectID">
-      <img :src="review.reviewer.image" alt="Profile image" /><br />
-      {{ review.reviewer.name }} <br />
-      {{ formDate(review.date) }}<br />
-      <short-text :text="review.comment" :target="150" /><br />
+    <div class="app-property-details">
+      <h3>Home user</h3>
+      <user-card :user="user" />
+
+      <h3>Reviews</h3>
+      <review-list :reviews="reviews" />
     </div>
-    <h3>- Home user -</h3>
-    <img :src="user.image" alt="Home user image" />
-    <h4>{{ user.name }}</h4>
-    <ul class="list">
-      <li>Joined - {{ formDate(user.joined) }}</li>
-      <li>Reviews - {{ user.reviewCount }}</li>
-      <li>{{ user.description }}</li>
-    </ul>
   </div>
 </template>
 
@@ -57,27 +49,5 @@ export default {
       title: this.home.title,
     }
   },
-
-  methods: {
-    formDate(dateSrt) {
-      const date = new Date(dateSrt)
-      return date.toLocaleDateString(undefined, {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    },
-  },
 }
 </script>
-<style scoped>
-ul.list {
-  list-style: none; /* Remove default bullets */
-}
-
-ul.list li:before {
-  content: '\2022';
-  padding-right: 0.5em;
-  color: darkcyan;
-}
-</style>

@@ -27,7 +27,7 @@
 - Run `yarn dev` to launch dev environment
 - Open application on https://localhost:3000
 
-Learn more about in our documentation on [how to contribute to Nuxt](https://v3.nuxtjs.org/community/contribution).
+Learn more about [how to contribute to Nuxt](https://v3.nuxtjs.org/community/contribution).
 
 ## 📖 Documentation
 

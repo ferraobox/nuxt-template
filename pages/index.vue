@@ -1,6 +1,13 @@
 <template>
-  <div>
-    List of Homes:
+  <div class="app">
+    <div class="app-container">
+      <div class="app-hero">
+        <h2>
+          - Settle in somewhere new. Discover stays to live, work, or just
+          relax.
+        </h2>
+      </div>
+    </div>
     <div
       v-for="home in homes"
       :key="home.objectID"
@@ -26,13 +33,15 @@ export default {
     }
     return { homes: homesResponse.json }
   },
+
   head() {
     return {
       title: 'Homepage',
       meta: [
         {
           name: 'description',
-          content: 'The home page of our NUXTBNB app.',
+          content:
+            'App that uses Nuxt, Cloudinary, Stripe, Google Maps and Algolia',
           hid: 'description',
         },
       ],

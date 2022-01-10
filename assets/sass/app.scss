@@ -214,6 +214,18 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
         text-indent: 22px;
         @apply bg-no-repeat text-sm text-trout;
 
+        button.comment {
+          border: 1.5px solid #2b354267;
+          color: rgb(99, 99, 99);
+          background-color: rgba(255, 255, 255, 0.397);
+          cursor: pointer;
+          @apply mr-5 w-24 rounded-full;
+        }
+        button.comment:hover {
+          color: rgb(199, 197, 197);
+          background-color: rgba(37, 36, 36, 0.63);
+        }
+
         > a {
           @apply text-dodger-blue;
         }
@@ -393,17 +405,6 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
     .image-container {
       margin: 0.3em;
       padding: 0.3em;
-    }
-
-    button.comment {
-      color: rgb(99, 99, 99);
-      background-color: rgba(255, 255, 255, 0.397);
-      cursor: pointer;
-      @apply mr-5 w-24 rounded-full;
-    }
-    button.comment:hover {
-      color: rgb(199, 197, 197);
-      background-color: rgba(37, 36, 36, 0.63);
     }
 
     img {

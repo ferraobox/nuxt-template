@@ -2,21 +2,12 @@
   <div class="app">
     <div class="app-container">
       <div class="app-hero">
-        <h2>
-          - Settle in somewhere new. Discover stays to live, work, or just
-          relax.
-        </h2>
+        <h2>- Settle in somewhere new. Discover stays to live, work, or just relax.</h2>
       </div>
     </div>
-    <div
-      v-for="home in homes"
-      :key="home.objectID"
-      style="float: Left; margin: 10px"
-    >
-      <nuxt-link :to="`/home/${home.objectID}`">
-        <home-card :home="home" />
-      </nuxt-link>
-    </div>
+    <section-premium-listings />
+    <section-recently-added class="app-background-grey" :homes="homes" />
+    <section-more />
   </div>
 </template>
 
@@ -40,8 +31,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content:
-            'App that uses Nuxt, Cloudinary, Stripe, Google Maps and Algolia',
+          content: 'App that uses Nuxt, Cloudinary, Stripe, Google Maps and Algolia',
           hid: 'description',
         },
       ],

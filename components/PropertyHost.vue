@@ -5,9 +5,7 @@
         <div><img :src="user.image" /></div>
         <div>
           <div class="app-host-name">{{ user.name }}</div>
-          <div class="app-host-date">
-            Joined in {{ shortDate(user.joined) }}
-          </div>
+          <div class="app-host-date">Joined in {{ shortDate(user.joined) }}</div>
           <div class="app-flex">
             <div class="app-host-reviews">{{ user.reviewCount }} reviews</div>
           </div>

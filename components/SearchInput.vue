@@ -1,10 +1,5 @@
 <template>
-  <input
-    ref="citySearch"
-    type="text"
-    placeholder="Enter your address"
-    @changed="changed"
-  />
+  <input ref="citySearch" type="text" placeholder="Enter your address" @changed="changed" />
 </template>
 <script>
 export default {

@@ -5,11 +5,7 @@
       <p class="app-summary">{{ home.description }}</p>
     </div>
     <div class="app-padded-vertical">
-      <div
-        v-for="(feature, index) in home.features"
-        :key="index"
-        class="app-tag"
-      >
+      <div v-for="(feature, index) in home.features" :key="index" class="app-tag">
         {{ feature }}
       </div>
     </div>

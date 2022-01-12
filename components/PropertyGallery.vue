@@ -1,10 +1,6 @@
 <template>
   <div class="app-masonry">
-    <div
-      v-for="image in images"
-      :key="image"
-      :style="`background-image: url(${image})`"
-    ></div>
+    <div v-for="image in images" :key="image" :style="`background-image: url(${image})`"></div>
   </div>
 </template>
 <script>

@@ -3,11 +3,7 @@
     <div class="app-search-results">
       <div class="app-search-results-listing">
         <h2 class="app-title">Stays in {{ label }}</h2>
-        <nuxt-link
-          v-for="home in homes"
-          :key="home.objectID"
-          :to="`/home/${home.objectID}`"
-        >
+        <nuxt-link v-for="home in homes" :key="home.objectID" :to="`/home/${home.objectID}`">
           <HomeRow
             class="app-house"
             :home="home"
@@ -25,10 +21,7 @@
 <script>
 export default {
   async beforeRouteUpdate(to, from, next) {
-    const data = await this.$dataApi.getHomesByLocation(
-      to.query.lat,
-      to.query.lng
-    )
+    const data = await this.$dataApi.getHomesByLocation(to.query.lat, to.query.lng)
     this.homes = data.json
     this.label = to.query.label
     this.lat = to.query.lat
@@ -61,11 +54,7 @@ export default {
         ?.classList?.toggle('marker-highlight', isHighlighted)
     },
     updateMap() {
-      this.$maps.showMap(
-        this.$refs.map,
-        { lat: this.lat, lng: this.lng },
-        this.getHomeMarkers()
-      )
+      this.$maps.showMap(this.$refs.map, { lat: this.lat, lng: this.lng }, this.getHomeMarkers())
     },
     getHomeMarkers() {
       if (this.homes.length == 0) {

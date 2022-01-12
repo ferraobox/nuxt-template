@@ -29,12 +29,9 @@ export default function (context, inject) {
   async function getHomeByHomeId(homeId) {
     try {
       return unWrap(
-        await fetch(
-          `https://${appid}-dsn.algolia.net/1/indexes/homes/${homeId}`,
-          {
-            headers,
-          }
-        )
+        await fetch(`https://${appid}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
+          headers,
+        })
       )
     } catch (error) {
       return getErrorResponse(error)
@@ -82,18 +79,15 @@ export default function (context, inject) {
   async function getReviewsByHomeId(homeId) {
     try {
       return unWrap(
-        await fetch(
-          `https://${appid}-dsn.algolia.net/1/indexes/reviews/query`,
-          {
-            headers,
-            method: 'POST',
-            body: JSON.stringify({
-              filters: `homeId:${homeId}`,
-              hitsPerPage: 4,
-              attributesToHighlight: [],
-            }),
-          }
-        )
+        await fetch(`https://${appid}-dsn.algolia.net/1/indexes/reviews/query`, {
+          headers,
+          method: 'POST',
+          body: JSON.stringify({
+            filters: `homeId:${homeId}`,
+            hitsPerPage: 4,
+            attributesToHighlight: [],
+          }),
+        })
       )
     } catch (error) {
       return getErrorResponse(error)

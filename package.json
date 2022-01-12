@@ -15,11 +15,6 @@
     "prepare": "husky install",
     "test": "jest"
   },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 ."
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -42,7 +37,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.7",
     "sass": "^1.47.0",
     "sass-loader": "^10"
   }

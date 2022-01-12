@@ -9,7 +9,6 @@
 </template>
 
 <script>
-const blabbla = blabla
 export default {
   props: {
     home: {

@@ -20,8 +20,8 @@ export default {
   router: {
     prefetchLinks: false,
   },
-  plugins: ['~/plugins/map.client.js', '~/plugins/dataApi.js'],
-  modules: [],
+  plugins: ['~/plugins/map.client.js', '~/plugins/dataApi.js', '~/plugins/auth.client.js'],
+  modules: ['~/modules/auth', '~/modules/algolia'],
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
@@ -33,6 +33,23 @@ export default {
     extractCSS: true,
     loaders: {
       limit: 0,
+    },
+  },
+  //Env config
+  publicRuntimeConfig: {
+    auth: {
+      cookieName: 'idToken',
+      clientId: process.env.GOOGLE_CLIENT_ID,
+    },
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      key: process.env.ALGOLIA_API_TOKEN,
+    },
+  },
+  privateRuntimeConfig: {
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      key: process.env.ALGOLIA_API_TOKEN,
     },
   },
 }

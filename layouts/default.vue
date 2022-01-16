@@ -17,7 +17,7 @@
           <nuxt-link to="/">
             <img src="/images/icons/house.svg" />
           </nuxt-link>
-          <div class="name">Host</div>
+          <div class="name">{{ user.fullName }}</div>
           <img :src="user.profileUrl" class="avatar" />
         </template>
         <div v-show="!isLoggedIn" id="googleButton" class="ml8"></div>

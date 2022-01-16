@@ -31,16 +31,20 @@ export default ({ $config, store }, inject) => {
     })
   }
 
+  //After login, we need to get the user data from Google
   async function parseUser(user) {
+    //If user is not signed in, we don't need to do anything
     if (!user.isSignedIn()) {
       Cookie.remove($config.auth.cookieName)
       store.commit('auth/user', null)
       return
     }
 
+    //If user is signed in, we set the cookie
     const idToken = user.getAuthResponse().id_token
     Cookie.set($config.auth.cookieName, idToken, { expires: 1 / 24, sameSite: 'Lax' })
 
+    //We get the user data from Google
     try {
       const response = await unWrap(await fetch('/api/user'))
       const user = response.json

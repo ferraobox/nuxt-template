@@ -1,7 +1,9 @@
 import userApi from './user'
+import homesApi from './homes'
 
-export default ({ appId, apiKey }) => {
+export default (agoliaAuth) => {
   return {
-    user: userApi({ appId, apiKey }),
+    user: userApi(agoliaAuth.appId, agoliaAuth.adminKey),
+    home: homesApi(agoliaAuth.appId, agoliaAuth.adminKey),
   }
 }

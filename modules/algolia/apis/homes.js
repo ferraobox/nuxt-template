@@ -6,24 +6,13 @@ export default (appId, adminKey) => {
   const headers = getHeaders(appId, adminKey)
 
   return {
-    create: async (identity, payload) => {
+    create: async (homeId, payload) => {
       try {
         return unWrap(
-          await fetch(`https://${appId}-dsn.algolia.net/1/indexes/users/${identity.id}`, {
+          await fetch(`https://${appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
             headers,
             method: 'PUT',
             body: JSON.stringify(payload),
-          })
-        )
-      } catch (error) {
-        return getErrorResponse(error)
-      }
-    },
-    getById: async (userId) => {
-      try {
-        return unWrap(
-          await fetch(`https://${appId}-dsn.algolia.net/1/indexes/users/${userId}`, {
-            headers,
           })
         )
       } catch (error) {

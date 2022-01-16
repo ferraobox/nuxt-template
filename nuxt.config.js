@@ -21,12 +21,15 @@ export default {
     prefetchLinks: false,
   },
   plugins: ['~/plugins/map.client.js', '~/plugins/dataApi.js', '~/plugins/auth.client.js'],
-  modules: ['~/modules/auth', '~/modules/algolia'],
+  modules: ['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
     ['@nuxtjs/dotenv', { systemvars: true }],
   ],
+  cloudinary: {
+    cloudName: 'ferraobox',
+  },
   // Tailwind config
   css: ['~/assets/sass/app.scss'],
   build: {
@@ -44,12 +47,20 @@ export default {
     algolia: {
       appId: process.env.ALGOLIA_APP_ID,
       key: process.env.ALGOLIA_API_TOKEN,
+      adminKey: process.env.ALGOLIA_API_ADMIN_TOKEN,
+    },
+    cloudinary: {
+      apiKey: process.env.CLOUDINARY_API_KEY,
     },
   },
   privateRuntimeConfig: {
     algolia: {
       appId: process.env.ALGOLIA_APP_ID,
       key: process.env.ALGOLIA_API_TOKEN,
+      adminKey: process.env.ALGOLIA_API_ADMIN_TOKEN,
+    },
+    cloudinary: {
+      apiSecret: process.env.CLOUDINARY_API_SECRET,
     },
   },
 }

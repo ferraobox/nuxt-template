@@ -35,7 +35,7 @@ export default function (context, inject) {
     waiting = []
   }
 
-  function makeAutoComplete(input) {
+  function makeAutoComplete(input, types = ['(cities)']) {
     if (!isLoaded) {
       waiting.push({
         fn: makeAutoComplete,
@@ -46,7 +46,7 @@ export default function (context, inject) {
     //TODO: Translations and localation ????
     const autoCompleteOptions = {
       componentRestrictions: { country: 'us' },
-      types: ['(cities)'],
+      types,
     }
     const autoComplete = new window.google.maps.places.Autocomplete(input, autoCompleteOptions)
     autoComplete.addListener('place_changed', () => {

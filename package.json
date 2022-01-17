@@ -8,6 +8,7 @@
   "private": false,
   "scripts": {
     "dev": "nuxt",
+    "prebuild": "yarn clean",
     "build": "nuxt build",
     "clean": "rimraf .nuxt && rimraf node_modules",
     "start": "nuxt start",

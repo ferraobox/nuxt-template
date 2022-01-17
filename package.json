@@ -16,7 +16,7 @@
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
     "prepare": "husky install",
     "test": "jest",
-    "vercel-build": "yarn global add node-gyp sharp"
+    "vercel-build": "yarn global add node-gyp sharp husky"
   },
   "config": {
     "commitizen": {

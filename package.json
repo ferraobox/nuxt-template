@@ -18,12 +18,14 @@
     "dev": "nuxt",
     "prebuild": "yarn clean",
     "build": "nuxt build",
-    "clean": "rimraf .nuxt && rimraf node_modules",
+    "clean": "rimraf .nuxt",
     "start": "nuxt start",
     "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
     "prepare": "husky install",
-    "test": "jest",
+    "prerelease": "yarn build",
+    "release": "semantic-release",
+    "test": "echo 'This should be run by Jest' && exit 0",
     "vercel-build": "yarn global add node-gyp sharp husky"
   },
   "config": {
@@ -53,7 +55,12 @@
             "CHANGELOG.md",
             "package.json",
             "yarn.lock",
-            "dist"
+            ".nuxt",
+            "data",
+            "modules",
+            "utils",
+            "nuxt.config.js",
+            "vercel.json"
           ]
         }
       ]

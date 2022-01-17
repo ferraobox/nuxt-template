@@ -21,7 +21,7 @@ jobs:
         id: cache-node-modules
         with:
           path: './node_modules'
-          key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: './node_modules'
-          key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn lint
 
   test:
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: './node_modules'
-          key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn test
 
   build:
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: './node_modules'
-          key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn build
 
   release:
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/cache@v2.1.7
         with:
           path: './node_modules'
-          key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}

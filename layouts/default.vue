@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <header class="app-header">
-      <div class="app-logo">
+      <nuxt-link class="app-logo" to="/">
         <img src="/images/logo.svg" />
-      </div>
+      </nuxt-link>
       <div class="app-search">
-        <input ref="citySearch" type="text" placeholder="Enter your address" @changed="changed" />
+        <input ref="citySearch" type="text" placeholder="Enter a city" @changed="changed" />
         <client-only>
           <template #placeholder>
             <input class="datepicker" />
@@ -54,8 +54,8 @@ export default {
         label: '',
       },
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: null,
+        end: null,
       },
     }
   },
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     search() {
-      if (!this.location.label) {
+      if (!this.location.label || !this.range.start || !this.range.end) {
         return
       }
       this.$router.push({

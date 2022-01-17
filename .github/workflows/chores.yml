@@ -1,0 +1,19 @@
+name: chores
+
+on:
+  pull_request_target:
+    branches: [main]
+
+jobs:
+  auto-approve:
+    if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: dependabot/fetch-metadata@v1.1.1
+        id: dependabot-metadata
+        with:
+          github-token: ${{ secrets.NUXT_PKG_TOKEN }}
+      - uses: hmarr/auto-approve-action@v2.1.0
+        if: steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major'
+        with:
+          github-token: ${{ secrets.NUXT_PKG_TOKEN }}

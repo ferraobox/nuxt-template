@@ -60,7 +60,7 @@ export default function ({ $config }, inject) {
   async function getHomesByLocation({ lat, lng }, { start, end }, radiusInMeters = 1500 * 15) {
     try {
       const days = []
-      for (var day = start; day <= end; day += 86400) {
+      for (var day = parseInt(start); day <= parseInt(end); day += 86400) {
         days.push(`availability:${day}`)
       }
 

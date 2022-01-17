@@ -1,0 +1,28 @@
+version: 2
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.PKG_TOKEN }}
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    rebase-strategy: 'disabled'
+    schedule:
+      interval: 'daily'
+      time: '07:00'
+      timezone: 'Europe/Madrid'
+  - package-ecosystem: 'npm'
+    registries:
+      - npm-github
+    commit-message:
+      prefix: 'fix'
+      prefix-development: 'chore'
+    directory: '/'
+    open-pull-requests-limit: 10
+    rebase-strategy: 'disabled'
+    schedule:
+      interval: 'daily'
+      time: '07:00'
+      timezone: 'Europe/Madrid'
+    versioning-strategy: 'increase'

@@ -1,0 +1,15 @@
+queue_rules:
+  - name: default
+    conditions: []
+
+pull_request_rules:
+  - name: Automatic merge of bot 🤖
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - base=main
+      - '#approved-reviews-by>=1'
+    actions:
+      queue:
+        method: squash
+        name: default
+       

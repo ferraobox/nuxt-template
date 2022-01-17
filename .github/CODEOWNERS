@@ -1,0 +1,4 @@
+# Default codeowners
+*                                       @ferraobox
+package.json                            @ferraobox @dependablebot @dependabot[bot] @semantic-release-bot
+yarn.lock                               @ferraobox @dependablebot @dependabot[bot] @semantic-release-bot

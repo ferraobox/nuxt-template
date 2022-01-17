@@ -58,7 +58,6 @@ export default function ({ $config }, inject) {
   }
 
   async function getHomesByLocation({ lat, lng }, { start, end }, radiusInMeters = 1500 * 15) {
-    //TODO - Test if it's working fine the availability
     try {
       const days = []
       for (var day = start; day <= end; day += 86400) {
@@ -71,7 +70,6 @@ export default function ({ $config }, inject) {
           method: 'POST',
           body: JSON.stringify({
             //https://www.algolia.com/doc/api-reference/api-parameters/aroundLatLng/
-            //Search for entries around a central geolocation, enabling a geo search within a circular area.
             aroundLatLng: `${lat},${lng}`,
             aroundRadius: radiusInMeters,
             hitsPerPage: 10,

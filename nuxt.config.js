@@ -1,11 +1,10 @@
 require('dotenv').config()
 import constants from './data/constants'
 const cloudinaryConfig = constants.cloudinaryConfig
-
+const rootUrl = process.env.NODE_ENV === 'production' ? constants.productionUrl : constants.devUrl
 //Application config
 const config = {
-  rootUrl: process.env.NODE_ENV === 'production' ? constants.productionUrl : constants.devUrl,
-
+  rootUrl,
   components: true,
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
@@ -66,6 +65,7 @@ const config = {
   },
   //Env config
   publicRuntimeConfig: {
+    basicUrl: rootUrl,
     auth: {
       cookieName: 'idToken',
       google: {

@@ -44,6 +44,22 @@ export default {
   head() {
     return {
       title: this.home.title,
+      meta: [
+        { hid: 'og-type', property: 'og:type', content: 'website' },
+        { hid: 'og-title', property: 'og:title', content: this.home.title },
+        { hid: 'og-desc', property: 'og:description', content: this.home.description },
+        {
+          hid: 'og-image',
+          property: 'og:image',
+          content: this.$img(this.home.images[0], { width: 1200 }, { provider: 'cloudinary' }),
+        },
+        {
+          hid: 'og-url',
+          property: 'og:url',
+          content: `${this.$config.basicUrl}/home/${this.home.objectID}`,
+        },
+        { hid: 't-type', name: 'twitter:card', content: 'summary_large_image' },
+      ],
     }
   },
 }

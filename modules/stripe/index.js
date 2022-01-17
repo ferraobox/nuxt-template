@@ -9,6 +9,8 @@ export default function () {
   const secretKey = this.options.privateRuntimeConfig.stripe.secretKey
   const stripe = stripeLib(secretKey)
   const cloudName = this.options.cloudinary.cloudName
+  const cloudUrl = this.options.cloudinary.url
+  const rootUrl = this.options.rootUrl
 
   this.nuxt.hook('render:setupMiddleware', (app) => {
     app.use('/api/stripe/create-session', createSession)
@@ -26,8 +28,8 @@ export default function () {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
-      success_url: `http://localhost:3000/home/${body.homeId}?result=success`,
-      cancel_url: `http://localhost:3000/home/${body.homeId}`,
+      success_url: `${rootUrl}/home/${body.homeId}?result=success`,
+      cancel_url: `${rootUrl}/home/${body.homeId}`,
       line_items: [
         {
           quantity: 1,
@@ -36,7 +38,7 @@ export default function () {
             unit_amount: home.pricePerNight * nights * 100,
             product_data: {
               name: 'Reservation for ' + home.title,
-              images: [`https://res.cloudinary.com/${cloudName}/image/upload/${home.images[0]}`],
+              images: [`${cloudUrl}/${cloudName}/image/upload/${home.images[0]}`],
             },
           },
         },

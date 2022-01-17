@@ -1,5 +1,11 @@
 require('dotenv').config()
-export default {
+import constants from './data/constants'
+const cloudinaryConfig = constants.cloudinaryConfig
+
+//Application config
+const config = {
+  rootUrl: process.env.NODE_ENV === 'production' ? constants.productionUrl : constants.devUrl,
+
   components: true,
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
@@ -42,11 +48,12 @@ export default {
   ],
   //Cloudinary
   cloudinary: {
-    cloudName: 'dngke1rir',
+    cloudName: cloudinaryConfig.cloudName,
+    url: cloudinaryConfig.url,
   },
   image: {
     cloudinary: {
-      baseURL: 'https://res.cloudinary.com/dngke1rir/image/upload/',
+      baseURL: `${cloudinaryConfig.url}/${cloudinaryConfig.cloudName}/image/upload/`,
     },
   },
   // Tailwind config
@@ -89,3 +96,5 @@ export default {
     },
   },
 }
+
+export default config

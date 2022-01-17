@@ -41,5 +41,24 @@ export default (appId, adminKey) => {
       payload.homeId = homes
       this.create(identity, payload)
     },
+
+    bookHome: async (userId, homeId, { start, end }) => {
+      try {
+        return unWrap(
+          await fetch(`https://${appId}-dsn.algolia.net/1/indexes/bookings/${userId}`, {
+            headers,
+            method: 'POST',
+            body: JSON.stringify({
+              userId,
+              homeId,
+              start,
+              end,
+            }),
+          })
+        )
+      } catch (error) {
+        return getErrorResponse(error)
+      }
+    },
   }
 }

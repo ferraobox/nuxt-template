@@ -1,10 +1,10 @@
 import stripeLib from 'stripe'
-import getApis from '../algolia/apis'
+import getAgoliaApis from '../algolia/apis'
 import { rejectHitBadRequest, sendJSON } from '../helpers'
 
 export default function () {
   const agoliaAuth = this.options.privateRuntimeConfig.algolia
-  const apis = getApis(agoliaAuth)
+  const apis = getAgoliaApis(agoliaAuth)
 
   const secretKey = this.options.privateRuntimeConfig.stripe.secretKey
   const stripe = stripeLib(secretKey)
@@ -14,6 +14,15 @@ export default function () {
 
   this.nuxt.hook('render:setupMiddleware', (app) => {
     app.use('/api/stripe/create-session', createSession)
+  })
+
+  this.nuxt.hook('render:setupMiddleware', (app) => {
+    app.use('/hooks/stripe', async (req, res) => {
+      const meta = req.body.data.object.metadata
+      const book = { start: meta.start, end: meta.end }
+      await apis.user.bookHome(meta.identity.id, meta.homeId, book)
+      res.end(`${meta.identityId} booked ${meta.homeId}!!!!`)
+    })
   })
 
   //MDW for handle stripe payment
@@ -26,6 +35,12 @@ export default function () {
     const home = (await apis.home.get(body.homeId)).json
     const nights = (body.end - body.start) / 86400
     const session = await stripe.checkout.sessions.create({
+      metadata: {
+        identityId: req.identity.id,
+        homeId: body.homeId,
+        start: body.start,
+        end: body.end,
+      },
       payment_method_types: ['card'],
       mode: 'payment',
       success_url: `${rootUrl}/home/${body.homeId}?result=success`,

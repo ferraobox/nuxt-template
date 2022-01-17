@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ferraobox/nuxt-template/compare/v1.0.0...v1.0.1) (2022-01-17)
+
+
+### Bug Fixes
+
+* add files needed to deploy ([40738a4](https://github.com/ferraobox/nuxt-template/commit/40738a44eee016042f3fa707908a622e35992344))
+
 # 1.0.0 (2022-01-17)
 
 

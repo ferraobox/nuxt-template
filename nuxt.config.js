@@ -68,7 +68,10 @@ const config = {
   publicRuntimeConfig: {
     auth: {
       cookieName: 'idToken',
-      clientId: process.env.GOOGLE_CLIENT_ID,
+      google: {
+        apiKey: process.env.GOOGLE_API_KEY,
+        clientId: process.env.GOOGLE_CLIENT_ID,
+      },
     },
     algolia: {
       appId: process.env.ALGOLIA_APP_ID,

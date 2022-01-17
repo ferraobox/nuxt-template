@@ -1,10 +1,10 @@
 import GoogleapisMapViewStyles from '~/data/configuration/google-maps/googleapis.map.view.styles.json'
 
-export default function (context, inject) {
+export default function ({ $config }, inject) {
   const markerIcon = 'https://maps.gstatic.com/mapfiles/transparent.png'
   const googleApiFeatures = '&libraries=places'
   const googleApiCallBackFunction = '&callback=initGoogleMaps'
-  const googleApiURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_API_KEY}${googleApiFeatures}${googleApiCallBackFunction}`
+  const googleApiURL = `https://maps.googleapis.com/maps/api/js?key=${$config.auth.google.apiKey}${googleApiFeatures}${googleApiCallBackFunction}`
   let isLoaded = false
   let waiting = []
 

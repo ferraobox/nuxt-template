@@ -57,7 +57,7 @@ export default function ({ $config }, inject) {
     }
   }
 
-  async function getHomesByLocation(lat, lng, radiusInMeters = 1500) {
+  async function getHomesByLocation(lat, lng, radiusInMeters = 1500 * 15) {
     try {
       return unWrap(
         await fetch(`https://${appId}-dsn.algolia.net/1/indexes/homes/query`, {

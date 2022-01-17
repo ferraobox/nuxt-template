@@ -4,7 +4,7 @@
       <div class="app-search-results-listing">
         <h2 class="app-title">Stays in {{ label }}</h2>
         <nuxt-link v-for="home in homes" :key="home.objectID" :to="`/home/${home.objectID}`">
-          <HomeRow
+          <home-row
             class="app-house"
             :home="home"
             @mouseover.native="highlightMarker(home.objectID, true)"

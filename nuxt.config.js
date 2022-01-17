@@ -23,12 +23,19 @@ export default {
   plugins: ['~/plugins/map.client.js', '~/plugins/dataApi.js', '~/plugins/auth.client.js'],
   modules: ['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
   buildModules: [
+    '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/eslint-module',
     ['@nuxtjs/dotenv', { systemvars: true }],
   ],
+  //Cloudinary
   cloudinary: {
-    cloudName: 'ferraobox',
+    cloudName: 'dngke1rir',
+  },
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/dngke1rir/image/upload/',
+    },
   },
   // Tailwind config
   css: ['~/assets/sass/app.scss'],

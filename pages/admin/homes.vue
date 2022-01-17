@@ -1,7 +1,10 @@
 <template>
   <div>
-    [LIST OF HOMES HERE]
-    <h2 class="text-xl bold">Add a Home</h2>
+    <span v-for="homeItem in homeList" :key="homeItem.objectID">
+      {{ homeItem.title }}
+      <button class="text-red-800" @click="deleteHome(homeItem.objectID)">Delete</button><br />
+    </span>
+    <h2 class="bold">Add a Home</h2>
     <form class="form" @submit.prevent="onSubmit">
       Images:<br />
       <image-uploader @file-uploaded="imageUpdated($event, 0)" />
@@ -42,14 +45,18 @@
       State: <input v-model="home.location.state" type="text" class="w-26" /><br />
       Postal Code: <input v-model="home.location.postalCode" type="text" class="w-26" /><br />
       Country: <input v-model="home.location.country" type="text" class="w-26" /><br />
+
       <button class="border px-4 py-2 border-gray-400">Add</button>
     </form>
   </div>
 </template>
 <script>
+import { unWrap } from '~/utils/fetchUtils'
+
 export default {
   data() {
     return {
+      homeList: [],
       home: {
         title: '',
         description: '',
@@ -77,11 +84,41 @@ export default {
   },
   mounted() {
     this.$maps.makeAutoComplete(this.$refs.locationSelector, ['address'])
+    this.setHomesList()
   },
   methods: {
+    async setHomesList() {
+      this.homeList = (await unWrap(await fetch('/api/homes/user/'))).json
+    },
+
+    async onSubmit() {
+      const response = await unWrap(
+        await fetch('/api/homes', {
+          method: 'POST',
+          body: JSON.stringify(this.home),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+      )
+      this.homeList.push({
+        title: this.home.title,
+        objectID: response.json.homeId,
+      })
+    },
+
+    async deleteHome(homeId) {
+      await fetch(`/api/homes/${homeId}`, {
+        method: 'DELETE',
+      })
+      const index = this.homeList.findIndex((obj) => obj.objectID == homeId)
+      this.homeList.splice(index, 1)
+    },
+
     imageUpdated(imageUrl, index) {
       this.home.images[index] = imageUrl
     },
+
     changed(event) {
       const addressParts = event.detail.address_components
       const street = this.getAddressPart(addressParts, 'street_number')?.short_name || ''
@@ -97,17 +134,9 @@ export default {
       this.home._geoloc.lat = geo.lat()
       this.home._geoloc.lng = geo.lng()
     },
+
     getAddressPart(parts, type) {
       return parts.find((part) => part.types.includes(type))
-    },
-    async onSubmit() {
-      await fetch('/api/homes', {
-        method: 'POST',
-        body: JSON.stringify(this.home),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
     },
   },
 }

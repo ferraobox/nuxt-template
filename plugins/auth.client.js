@@ -59,6 +59,7 @@ export default ({ $config, store }, inject) => {
   }
 
   function signOut() {
+    //TODO: The session not expires
     const auth2 = window.gapi.auth2.getAuthInstance()
     auth2.signOut()
   }

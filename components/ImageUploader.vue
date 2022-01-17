@@ -19,11 +19,8 @@ export default {
         public_id: filename,
       }
 
-      //We do it here because admin web is a SPA application????
-      //Call cloudinary api to upload the file
-
-      console.log('*** URL: /api/cloudinary/signature [POST] - body:', JSON.stringify(options))
-
+      //We do it here because admin web is a SPA
+      //Call cloudinary MDW to get the signed url
       const response = await unWrap(
         await fetch('/api/cloudinary/signature', {
           headers: {
@@ -34,24 +31,23 @@ export default {
         })
       )
 
-      console.log({ response })
-
       const signature = response.json.signature
+
       const readData = (fileObj) =>
         new Promise((resolve) => {
           const reader = new FileReader()
           reader.onloadend = () => resolve(reader.result)
           reader.readAsDataURL(fileObj)
         })
-
       const data = await readData(file)
+
       const asset = await this.$cloudinary.upload(data, {
         ...options,
-        apiKey: this.$config.cloudinary.apiKey,
         signature,
+        apiKey: this.$config.cloudinary.apiKey,
       })
 
-      this.$emit('file-uploaded', asset.secure_url)
+      this.$emit('file-uploaded', asset.public_id)
     },
   },
 }

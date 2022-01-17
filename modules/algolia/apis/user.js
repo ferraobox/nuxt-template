@@ -30,5 +30,16 @@ export default (appId, adminKey) => {
         return getErrorResponse(error)
       }
     },
+    assignHome: async function (identity, homeId) {
+      const payload = (await this.getById(identity.id)).json
+      payload.homeId.push(homeId)
+      this.create(identity, payload)
+    },
+    removeHome: async function (identity, homeId) {
+      const payload = (await this.getById(identity.id)).json
+      const homes = payload.homeId.filter((id) => id != homeId)
+      payload.homeId = homes
+      this.create(identity, payload)
+    },
   }
 }

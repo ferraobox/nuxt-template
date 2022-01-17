@@ -20,7 +20,12 @@ export default {
   router: {
     prefetchLinks: false,
   },
-  plugins: ['~/plugins/map.client.js', '~/plugins/dataApi.js', '~/plugins/auth.client.js'],
+  plugins: [
+    '~/plugins/map.client.js',
+    '~/plugins/dataApi.js',
+    '~/plugins/auth.client.js',
+    '~/plugins/vCalendar.client.js',
+  ],
   modules: ['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
   buildModules: [
     '@nuxt/image',

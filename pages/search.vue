@@ -21,7 +21,13 @@
 <script>
 export default {
   async beforeRouteUpdate(to, from, next) {
-    const data = await this.$dataApi.getHomesByLocation(to.query.lat, to.query.lng)
+    const location = { lat: to.query.lat, lng: to.query.lng }
+    const bookingTime = {
+      start: to.query.start,
+      end: to.query.end,
+    }
+    const data = await this.$dataApi.getHomesByLocation(location, bookingTime)
+
     this.homes = data.json
     this.label = to.query.label
     this.lat = to.query.lat
@@ -31,7 +37,13 @@ export default {
   },
 
   async asyncData({ query, $dataApi }) {
-    const data = await $dataApi.getHomesByLocation(query.lat, query.lng)
+    const location = { lat: query.lat, lng: query.lng }
+    const bookingTime = {
+      start: query.start,
+      end: query.end,
+    }
+
+    const data = await $dataApi.getHomesByLocation(location, bookingTime)
     return {
       homes: data.json,
       label: query.label,

@@ -57,8 +57,14 @@ export default function ({ $config }, inject) {
     }
   }
 
-  async function getHomesByLocation(lat, lng, radiusInMeters = 1500 * 15) {
+  async function getHomesByLocation({ lat, lng }, { start, end }, radiusInMeters = 1500 * 15) {
+    //TODO - Test if it's working fine the availability
     try {
+      const days = []
+      for (var day = start; day <= end; day += 86400) {
+        days.push(`availability:${day}`)
+      }
+
       return unWrap(
         await fetch(`https://${appId}-dsn.algolia.net/1/indexes/homes/query`, {
           headers,
@@ -69,6 +75,7 @@ export default function ({ $config }, inject) {
             aroundLatLng: `${lat},${lng}`,
             aroundRadius: radiusInMeters,
             hitsPerPage: 10,
+            filters: days.join(' AND '),
             attributesToHighlight: [],
           }),
         })

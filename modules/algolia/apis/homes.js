@@ -1,11 +1,23 @@
-import { getHeaders } from '../helpers'
+import { getAgoliaHeaders } from '../../helpers'
 import fetch from 'node-fetch'
 import { unWrap, getErrorResponse } from '../../../utils/fetchUtils'
 
 export default (appId, adminKey) => {
-  const headers = getHeaders(appId, adminKey)
+  const headers = getAgoliaHeaders(appId, adminKey)
 
   return {
+    get: async (homeId) => {
+      try {
+        return unWrap(
+          await fetch(`https://${appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
+            headers,
+          })
+        )
+      } catch (error) {
+        return getErrorResponse(error)
+      }
+    },
+
     create: async (homeId, payload) => {
       try {
         const availability = []

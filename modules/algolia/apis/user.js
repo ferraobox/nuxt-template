@@ -1,9 +1,9 @@
-import { getHeaders } from '../helpers'
+import { getAgoliaHeaders } from '../../helpers'
 import fetch from 'node-fetch'
 import { unWrap, getErrorResponse } from '../../../utils/fetchUtils'
 
 export default (appId, adminKey) => {
-  const headers = getHeaders(appId, adminKey)
+  const headers = getAgoliaHeaders(appId, adminKey)
 
   return {
     create: async (identity, payload) => {

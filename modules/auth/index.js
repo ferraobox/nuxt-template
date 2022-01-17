@@ -6,6 +6,7 @@ export default function () {
   const apis = getApis()
 
   this.nuxt.hook('render:setupMiddleware', (app) => {
+    //TODO: Ofuscated routes
     app.use('/api', apiRouter(authConfig, apis))
   })
 

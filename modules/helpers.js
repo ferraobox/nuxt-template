@@ -1,4 +1,4 @@
-export function getHeaders(appId, apiKey) {
+export function getAgoliaHeaders(appId, apiKey) {
   return {
     'X-Algolia-API-Key': apiKey,
     'X-Algolia-Application-Id': appId,

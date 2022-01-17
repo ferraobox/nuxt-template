@@ -25,8 +25,15 @@ export default {
     '~/plugins/dataApi.js',
     '~/plugins/auth.client.js',
     '~/plugins/vCalendar.client.js',
+    '~/plugins/stripe.client',
   ],
-  modules: ['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
+  modules: [
+    '~/modules/auth',
+    '~/modules/algolia',
+    '~/modules/cloudinary',
+    '~/modules/stripe',
+    '@nuxtjs/cloudinary',
+  ],
   buildModules: [
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
@@ -64,6 +71,9 @@ export default {
     cloudinary: {
       apiKey: process.env.CLOUDINARY_API_KEY,
     },
+    stripe: {
+      key: process.env.STRIPE_API_KEY,
+    },
   },
   privateRuntimeConfig: {
     algolia: {
@@ -73,6 +83,9 @@ export default {
     },
     cloudinary: {
       apiSecret: process.env.CLOUDINARY_API_SECRET,
+    },
+    stripe: {
+      secretKey: process.env.STRIPE_API_SECRET_KEY,
     },
   },
 }

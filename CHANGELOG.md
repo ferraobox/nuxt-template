@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/ferraobox/nuxt-template/compare/v1.0.1...v1.0.2) (2022-01-17)
+
+
+### Bug Fixes
+
+* test release ([#2](https://github.com/ferraobox/nuxt-template/issues/2)) ([1e6a167](https://github.com/ferraobox/nuxt-template/commit/1e6a16754a3f76383c626f18cf9ae6248ffd22e5))
+
 ## [1.0.1](https://github.com/ferraobox/nuxt-template/compare/v1.0.0...v1.0.1) (2022-01-17)
 
 

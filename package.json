@@ -58,7 +58,9 @@
             ".nuxt",
             "data",
             "modules",
-            "utils"
+            "utils",
+            "nuxt.config.js",
+            "vercel.json"
           ]
         }
       ]

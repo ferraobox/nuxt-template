@@ -53,7 +53,10 @@
             "CHANGELOG.md",
             "package.json",
             "yarn.lock",
-            "dist"
+            ".nuxt",
+            "data",
+            "modules",
+            "utils"
           ]
         }
       ]

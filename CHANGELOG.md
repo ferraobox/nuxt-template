@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/ferraobox/nuxt-template/compare/v1.1.1...v1.1.2) (2022-01-18)
+
+
+### Bug Fixes
+
+* remove condition from deploy job ([#8](https://github.com/ferraobox/nuxt-template/issues/8)) ([b1ead5c](https://github.com/ferraobox/nuxt-template/commit/b1ead5c42df80537b7819b948407a2d583feada5))
+
 ## [1.1.1](https://github.com/ferraobox/nuxt-template/compare/v1.1.0...v1.1.1) (2022-01-18)
 
 

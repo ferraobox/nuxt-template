@@ -61,7 +61,7 @@ jobs:
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
       - run: yarn build
 
-  test:
+  unit-test:
     needs: [prepare, build]
     runs-on: ubuntu-20.04
     steps:
@@ -79,9 +79,27 @@ jobs:
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
       - run: yarn test
 
+  ui-test:
+    needs: [prepare, build, deploy-preview]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: './node_modules'
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: .nuxt
+          key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
+      - run: echo 'This should run cypress test'
+
   release:
     if: github.ref == 'refs/heads/main'
-    needs: [build, lint, prepare, test]
+    needs: [build, lint, prepare, unit-test, ui-test]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -106,7 +124,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
 
   deploy-preview:
-    if: github.event_name == 'pull_request'
+    # if: github.event_name == 'pull_request'
     needs: build
     runs-on: ubuntu-20.04
     steps:
@@ -127,7 +145,7 @@ jobs:
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-      - uses: ./
+      - uses: amondnet/vercel-action@v20
         id: vercel-action-staging
         with:
           github-token: ${{ secrets.NUXT_PKG_TOKEN }}
@@ -162,7 +180,7 @@ jobs:
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-      - uses: ./
+      - uses: amondnet/vercel-action@v20
         id: vercel-action-production
         if: github.event_name == 'push'
         with:

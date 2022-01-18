@@ -16,14 +16,12 @@
   "private": false,
   "scripts": {
     "dev": "nuxt",
-    "prebuild": "yarn clean",
     "build": "nuxt build",
-    "clean": "rimraf .nuxt",
+    "clean": "rimraf .nuxt && rimraf node_modules",
     "start": "nuxt start",
     "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
     "prepare": "husky install",
-    "prerelease": "yarn build",
     "release": "semantic-release",
     "test": "echo 'This should be run the test ****' && exit 0",
     "vercel-build": "yarn global add node-gyp sharp husky"

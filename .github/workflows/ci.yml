@@ -157,7 +157,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
           alias-domains: |
-            ferraobox-nuxt-template-{{PR_NUMBER}}-{{BRANCH}}.vercel.app
+            ferraobox-nuxt-template-{{BRANCH}}.vercel.app
 
   deploy:
     if: |

@@ -121,7 +121,7 @@ jobs:
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-      - run: yarn release --ci
+      - run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
 

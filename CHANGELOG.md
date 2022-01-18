@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ferraobox/nuxt-template/compare/v1.0.2...v1.1.0) (2022-01-18)
+
+
+### Features
+
+* ci deployment improvements 1 build step and share cached build ([#5](https://github.com/ferraobox/nuxt-template/issues/5)) ([2a75082](https://github.com/ferraobox/nuxt-template/commit/2a75082055656b6c12f70d9902c0cded07c9ca45))
+
 ## [1.0.2](https://github.com/ferraobox/nuxt-template/compare/v1.0.1...v1.0.2) (2022-01-17)
 
 

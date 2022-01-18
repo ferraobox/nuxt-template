@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/ferraobox/nuxt-template/compare/v1.1.0...v1.1.1) (2022-01-18)
+
+
+### Bug Fixes
+
+* remove skip ci from semantic-release ([#7](https://github.com/ferraobox/nuxt-template/issues/7)) ([ea63faf](https://github.com/ferraobox/nuxt-template/commit/ea63faf764a847d4066801dc2484c8da58d87e44))
+
 # [1.1.0](https://github.com/ferraobox/nuxt-template/compare/v1.0.2...v1.1.0) (2022-01-18)
 
 

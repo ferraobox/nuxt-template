@@ -106,7 +106,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
 
   deploy-preview:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request'
     needs: build
     runs-on: ubuntu-20.04
     steps:
@@ -117,21 +117,24 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: /
+          working-directory: ./
           alias-domains: |
             ferraobox-nuxt-template-{{PR_NUMBER}}-{{BRANCH}}.vercel.app
 
   deploy:
-    if: github.event_name == 'push'
+    if: |
+      github.ref == 'refs/heads/main'
+      github.actor == 'semantic-release-bot'
     needs: release
     runs-on: ubuntu-20.04
     steps:
       - uses: ./
         id: vercel-action-production
+        if: github.event_name == 'push'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: example/angular/dist/angular
+          working-directory: ./
           vercel-args: '--prod '

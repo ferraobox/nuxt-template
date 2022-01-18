@@ -43,20 +43,6 @@ jobs:
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn lint
 
-  test:
-    needs: prepare
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.5.1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
-        with:
-          path: './node_modules'
-          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - run: yarn test
-
   build:
     needs: prepare
     runs-on: ubuntu-20.04
@@ -69,7 +55,29 @@ jobs:
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: .nuxt
+          key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
       - run: yarn build
+
+  test:
+    needs: [prepare, build]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: './node_modules'
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: .nuxt
+          key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
+      - run: yarn test
 
   release:
     if: github.ref == 'refs/heads/main'
@@ -86,6 +94,10 @@ jobs:
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: .nuxt
+          key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}

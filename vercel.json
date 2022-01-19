@@ -5,6 +5,6 @@
   "github": {
     "enabled": false
   },
-  "builds": [{ "src": "./public/**", "use": "@now/static" }],
+  "builds": [{ "src": "./public/**", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "public/$1" }]
 }

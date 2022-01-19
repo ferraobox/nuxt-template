@@ -1,10 +1,29 @@
 {
   "version": 2,
-  "public": false,
-  "github": {
-    "enabled": false
-  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": [
+          "data/**",
+          "modules/**",
+          "utils/**",
+          ".nuxt/**",
+          "node_modules/**",
+          "nuxt.config.js",
+          "package.json"
+        ]
+      }
+    }
+  ],
   "alias": ["ferraobox-nuxt-template.vercel.app"],
-  "builds": [{ "src": "./public/**", "use": "@now/static" }],
-  "routes": [{ "src": "/(.*)", "dest": "public/$1" }]
+  "github": {
+    "autoAlias": false,
+    "enabled": false
+  }
 }

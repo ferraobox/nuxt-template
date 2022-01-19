@@ -160,9 +160,7 @@ jobs:
             ferraobox-nuxt-template-{{BRANCH}}.vercel.app
 
   deploy:
-    if: |
-      github.ref == 'refs/heads/main' &&
-      github.actor == 'semantic-release-bot'
+    if: github.ref == 'refs/heads/main'
     needs: release
     runs-on: ubuntu-20.04
     environment: production

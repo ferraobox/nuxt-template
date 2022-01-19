@@ -1,6 +1,6 @@
 {
   "name": "nuxt-template",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "mastering-nuxt",
   "homepage": "https://github.com/ferraobox/nuxt-template#readme",
   "bugs": {
@@ -41,7 +41,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "yarn version --new-version 1.0.0 --no-git-tag-version --no-commit-hooks"
+          "prepareCmd": "yarn version --new-version 1.1.1 --no-git-tag-version --no-commit-hooks"
         }
       ],
       "@semantic-release/github",
@@ -94,7 +94,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
     "husky": "^7.0.4",
-    "sass": "^1.47.0",
+    "sass": "^1.49.0",
     "sass-loader": "^10",
     "semantic-release": "^19.0.2"
   },

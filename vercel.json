@@ -1,10 +1,10 @@
 {
   "version": 2,
   "public": false,
-  "alias": ["ferraobox-nuxt-template.vercel.app"],
   "github": {
     "enabled": false
   },
-  "builds": [{ "src": "./public/**", "use": "@vercel/node" }],
+  "alias": ["ferraobox-nuxt-template.vercel.app"],
+  "builds": [{ "src": "./public/**", "use": "@now/static" }],
   "routes": [{ "src": "/(.*)", "dest": "public/$1" }]
 }

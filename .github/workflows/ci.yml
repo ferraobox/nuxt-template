@@ -151,14 +151,13 @@ jobs:
       - name: 'Deploy Preview'
         run: |
           yarn global add vercel
-          GITHUB-BRANCH-REF=${GITHUB-BRANCH-REF##*/}
+          GITHUB-BRANCH-REF=${GITHUB_REF##*/}
           vercel --token ${VERCEL_TOKEN} alias set ["ferraobox-nuxt-template-${GITHUB-BRANCH-REF}.vercel.app"]
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           GITHUB-TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-          GITHUB-BRANCH-REF: ${{ github.ref }}
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -183,13 +182,14 @@ jobs:
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-      - uses: amondnet/vercel-action@v20
-        id: vercel-action-production
-        if: github.event_name == 'push'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: ./
-          vercel-args: '--prod '
+      - name: 'Deploy Production'
+        run: |
+          yarn global add vercel
+          GITHUB-BRANCH-REF=${GITHUB-BRANCH-REF##*/}
+          vercel --token ${VERCEL_TOKEN} --prod alias set ["ferraobox-nuxt-template.vercel.app"]
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          GITHUB-TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+          GITHUB-BRANCH-REF: ${{ github.ref }}

@@ -21,7 +21,7 @@
     "start": "nuxt start",
     "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "release": "semantic-release",
     "test": "echo 'This should be run the test ****' && exit 0"
   },
@@ -56,8 +56,7 @@
             "data",
             "modules",
             "utils",
-            "nuxt.config.js",
-            "vercel.json"
+            "nuxt.config.js"
           ]
         }
       ]
@@ -82,6 +81,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/vercel-builder": "^0.22.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",

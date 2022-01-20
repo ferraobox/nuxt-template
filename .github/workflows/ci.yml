@@ -27,8 +27,7 @@ jobs:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          yarn install --frozen-lockfile --silent
+        run: yarn install --frozen-lockfile --silent
 
   lint:
     needs: prepare

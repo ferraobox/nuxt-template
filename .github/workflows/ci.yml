@@ -148,10 +148,15 @@ jobs:
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
         env:
           NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+      - name: set preview id
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+      - name: Check output
+        run: echo ${{ steps.vars.outputs.short_ref }}
       - name: 'Deploy Preview'
         run: |
           yarn global add vercel
-          vercel --token ${VERCEL_TOKEN} alias set ["ferraobox-nuxt-template-${BRANCH_NAME}.vercel.app"]
+          vercel --token ${VERCEL_TOKEN} alias set ["ferraobox-nuxt-template-${{ steps.vars.outputs.short_ref }}.vercel.app"]
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

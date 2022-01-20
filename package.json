@@ -77,7 +77,7 @@
     "v-calendar": "^2.3.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.1",
+    "@commitlint/cli": "^16.0.3",
     "@commitlint/config-conventional": "^16.0.0",
     "@nuxt/image": "^0.6.0",
     "@nuxtjs/dotenv": "^1.4.1",

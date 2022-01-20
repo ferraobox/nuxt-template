@@ -151,12 +151,13 @@ jobs:
       - name: 'Deploy Preview'
         run: |
           yarn global add vercel
-          vercel --token ${VERCEL_TOKEN} alias set ["ferraobox-nuxt-template.vercel.app"]
+          vercel --token ${VERCEL_TOKEN} alias set ["ferraobox-nuxt-template-${GITHUB-BRANCH##*/}.vercel.app"]
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           GITHUB-TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+          GITHUB-BRANCH: ${{ github.ref }}
 
   deploy:
     if: github.ref == 'refs/heads/main'

@@ -71,12 +71,12 @@
     "google-auth-library": "^7.11.0",
     "js-cookie": "^3.0.1",
     "nuxt": "^2.15.8",
-    "stripe": "^8.197.0",
+    "stripe": "^8.198.0",
     "uuid": "^8.3.2",
     "v-calendar": "^2.3.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.1",
+    "@commitlint/cli": "^16.0.3",
     "@commitlint/config-conventional": "^16.0.0",
     "@nuxt/image": "^0.6.0",
     "@nuxtjs/dotenv": "^1.4.1",

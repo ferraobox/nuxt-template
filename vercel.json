@@ -4,5 +4,15 @@
   "github": {
     "autoAlias": false,
     "enabled": false
-  }
+  },
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "generateStaticRoutes": true,
+        "serverFiles": ["data/**", "modules/**", "utils/**"]
+      }
+    }
+  ]
 }

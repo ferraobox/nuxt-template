@@ -157,6 +157,7 @@ jobs:
         run: |
           yarn global add vercel
           vercel --token ${VERCEL_TOKEN} alias set "ferraobox-nuxt-template-${{ steps.vars.outputs.short_ref }}.vercel.app"
+          vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -189,8 +190,8 @@ jobs:
       - name: 'Deploy Production'
         run: |
           yarn global add vercel
-          GITHUB-BRANCH-REF=${GITHUB-BRANCH-REF##*/}
           vercel --token ${VERCEL_TOKEN} --prod alias set ["ferraobox-nuxt-template.vercel.app"]
+          vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

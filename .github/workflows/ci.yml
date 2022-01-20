@@ -137,13 +137,6 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
-        with:
-          path: './node_modules'
-          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
-        env:
-          NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
       - uses: amondnet/vercel-action@v20
         id: vercel-action-staging
         with:

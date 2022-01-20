@@ -22,8 +22,7 @@
     "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
     "release": "semantic-release",
-    "test": "echo 'This should be run the test ****' && exit 0",
-    "vercel-build": "yarn global add node-gyp sharp"
+    "test": "echo 'This should be run the test ****' && exit 0"
   },
   "config": {
     "commitizen": {

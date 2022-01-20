@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "nuxt.config.js",
-      "use": "@nuxtjs/vercel-builder",
-      "config": {
-        "serverFiles": ["data/**", "modules/**", "utils/**"]
-      }
-    }
-  ],
   "alias": ["ferraobox-nuxt-template.vercel.app"],
   "github": {
     "autoAlias": false,

@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "@nuxtjs/cloudinary": "^1.0.3",
+    "axios": "^0.25.0",
     "body-parser": "^1.19.1",
     "cloudinary-vue": "^1.2.3",
     "cookie": "^0.4.1",

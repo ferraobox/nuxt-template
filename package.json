@@ -24,7 +24,7 @@
     "prepare": "husky install",
     "release": "semantic-release",
     "test": "echo 'This should be run the test ****' && exit 0",
-    "vercel-build": "yarn global add node-gyp husky"
+    "vercel-build": "yarn build"
   },
   "config": {
     "commitizen": {

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-template",
-  "version": "1.1.2",
+  "version": "1.2.1",
   "description": "mastering-nuxt",
   "homepage": "https://github.com/ferraobox/nuxt-template#readme",
   "bugs": {
@@ -41,7 +41,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "yarn version --new-version 1.1.2 --no-git-tag-version --no-commit-hooks"
+          "prepareCmd": "yarn version --new-version 1.2.1 --no-git-tag-version --no-commit-hooks"
         }
       ],
       "@semantic-release/github",

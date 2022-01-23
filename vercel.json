@@ -12,10 +12,5 @@
         "serverFiles": ["data/**", "modules/**", "utils/**"]
       }
     }
-  ],
-  "alias": ["ferraobox-nuxt-template.vercel.app"],
-  "github": {
-    "autoAlias": false,
-    "enabled": false
-  }
+  ]
 }

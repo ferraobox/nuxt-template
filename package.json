@@ -21,7 +21,6 @@
     "start": "nuxt start",
     "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue --max-warnings 0 .",
     "lint:fix": "eslint --config .eslintrc.js --ext .js,.ts,.vue --fix --max-warnings 0 .",
-    "prepare": "husky install",
     "release": "semantic-release",
     "test": "echo 'This should be run the test ****' && exit 0"
   },

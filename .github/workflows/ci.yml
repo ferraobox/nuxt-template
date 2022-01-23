@@ -96,29 +96,3 @@ jobs:
       - run: echo 'This should run cypress test'
         # env:
         #   VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-
-  release:
-    if: github.ref == 'refs/heads/main'
-    needs: [build, lint, prepare, unit-test, ui-test]
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v2.5.1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
-        with:
-          path: './node_modules'
-          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - uses: actions/cache@v2.1.7
-        with:
-          path: .nuxt
-          key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
-      - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
-        env:
-          NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
-      - run: yarn release --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}

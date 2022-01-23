@@ -2,6 +2,12 @@
 
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
+if [[ "$VERCEL_GIT_COMMIT_AUTHOR_NAME" == "semantic-release-bot" ]] ; then
+  # Don't build
+    echo "🛑 - Build cancelled"
+  exit 0;
+fi
+
 if [[ "$VERCEL_GIT_COMMIT_AUTHOR_NAME" == "dependabot[bot]" || "$VERCEL_GIT_COMMIT_AUTHOR_NAME" == "dependabot" || "$VERCEL_GIT_COMMIT_REF" == "main"  ]] ; then
   # Proceed with the build
     echo "✅ - Build can proceed"
@@ -9,6 +15,6 @@ if [[ "$VERCEL_GIT_COMMIT_AUTHOR_NAME" == "dependabot[bot]" || "$VERCEL_GIT_COMM
 
 else
   # Don't build
-  echo "🛑 - Build cancelled"
+    echo "🛑 - Build cancelled"
   exit 0;
 fi

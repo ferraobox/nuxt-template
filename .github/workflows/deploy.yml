@@ -1,0 +1,50 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  NODE_VERSION: 14.18.3
+
+jobs:
+  prepare:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2.1.7
+        id: cache-node-modules
+        with:
+          path: './node_modules'
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
+        env:
+          NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --silent
+
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs: prepare
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2.1.7
+        with:
+          path: './node_modules'
+          key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
+      - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
+        env:
+          NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+      - run: yarn release --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}

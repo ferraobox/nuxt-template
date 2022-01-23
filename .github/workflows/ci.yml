@@ -145,14 +145,14 @@ jobs:
           path: .nuxt
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
       - run: echo //npm.pkg.github.com/:_authToken=$NUXT_PKG_TOKEN >> ~/.npmrc
-          env:
-            NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
+        env:
+          NUXT_PKG_TOKEN: ${{ secrets.NUXT_PKG_TOKEN }}
       - uses: amondnet/vercel-action@v20
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} 
-          github-token: ${{ secrets.NUXT_PKG_TOKEN }} 
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.NUXT_PKG_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
 
     # deploy:
     #   if: github.ref == 'refs/heads/main'

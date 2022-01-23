@@ -50,6 +50,7 @@
         "@semantic-release/git",
         {
           "assets": [
+            "CHANGELOG.md",
             "package.json",
             "yarn.lock",
             ".nuxt",

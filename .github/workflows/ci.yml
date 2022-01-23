@@ -80,7 +80,7 @@ jobs:
       - run: yarn test
 
   ui-test:
-    needs: [prepare, build, deploy-preview]
+    needs: [prepare, build]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2

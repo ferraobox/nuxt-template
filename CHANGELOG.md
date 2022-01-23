@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ferraobox/nuxt-template/compare/v1.2.0...v1.2.1) (2022-01-23)
+
+
+### Bug Fixes
+
+* refactor package.json ([0e90687](https://github.com/ferraobox/nuxt-template/commit/0e90687ae5ba31e65c2596bc416ad179cb0d753e))
+
 ## [1.1.2](https://github.com/ferraobox/nuxt-template/compare/v1.1.1...v1.1.2) (2022-01-18)
 
 

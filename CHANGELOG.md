@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/ferraobox/nuxt-template/compare/v1.2.1...v1.3.0) (2022-01-23)
+
+
+### Bug Fixes
+
+* refactor package.json ([eabac89](https://github.com/ferraobox/nuxt-template/commit/eabac89a1aecd7692e071918db099d84c2411a6c))
+
+
+### Features
+
+* not deploy with semantic-release-bot - refactor deploy.sh ([d142218](https://github.com/ferraobox/nuxt-template/commit/d14221847d0112308c6c04690e597f0433e911e2))
+
 ## [1.2.1](https://github.com/ferraobox/nuxt-template/compare/v1.2.0...v1.2.1) (2022-01-23)
 
 

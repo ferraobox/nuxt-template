@@ -12,8 +12,5 @@
         "serverFiles": ["data/**", "modules/**", "utils/**"]
       }
     }
-  ],
-  "github": {
-    "enabled": false
-  }
+  ]
 }

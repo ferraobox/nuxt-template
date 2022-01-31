@@ -74,7 +74,7 @@
     "nuxt": "^2.15.8",
     "stripe": "^8.200.0",
     "uuid": "^8.3.2",
-    "v-calendar": "^2.3.4"
+    "v-calendar": "^2.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",

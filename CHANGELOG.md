@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/ferraobox/nuxt-template/compare/v1.3.2...v1.3.3) (2022-02-03)
+
+
+### Bug Fixes
+
+* bump cookie from 0.4.1 to 0.4.2 ([#30](https://github.com/ferraobox/nuxt-template/issues/30)) ([85af5db](https://github.com/ferraobox/nuxt-template/commit/85af5db316263e19e2ac156910f9f2a45049cff8))
+
 ## [1.3.2](https://github.com/ferraobox/nuxt-template/compare/v1.3.1...v1.3.2) (2022-01-31)
 
 

@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/ferraobox/nuxt-template/compare/v1.3.4...v1.3.5) (2022-02-07)
+
+
+### Bug Fixes
+
+* bump v-calendar from 2.4.0 to 2.4.1 ([#32](https://github.com/ferraobox/nuxt-template/issues/32)) ([393c131](https://github.com/ferraobox/nuxt-template/commit/393c13179ba08586f0308a0e024ce79b545e121d))
+
 ## [1.3.4](https://github.com/ferraobox/nuxt-template/compare/v1.3.3...v1.3.4) (2022-02-04)
 
 

@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/ferraobox/nuxt-template/compare/v1.3.5...v1.3.6) (2022-02-10)
+
+
+### Bug Fixes
+
+* bump google-auth-library from 7.11.0 to 7.12.0 ([#35](https://github.com/ferraobox/nuxt-template/issues/35)) ([c233d32](https://github.com/ferraobox/nuxt-template/commit/c233d32754a4ca258d0e2695ed73bf6f9950dceb))
+
 ## [1.3.5](https://github.com/ferraobox/nuxt-template/compare/v1.3.4...v1.3.5) (2022-02-07)
 
 

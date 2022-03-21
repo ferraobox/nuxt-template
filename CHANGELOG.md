@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/ferraobox/nuxt-template/compare/v1.3.13...v1.3.14) (2022-03-21)
+
+
+### Bug Fixes
+
+* bump stripe from 8.209.0 to 8.210.0 ([#67](https://github.com/ferraobox/nuxt-template/issues/67)) ([df40c88](https://github.com/ferraobox/nuxt-template/commit/df40c880d4f21fe3386f3baf55746288e64db0ef))
+
 ## [1.3.13](https://github.com/ferraobox/nuxt-template/compare/v1.3.12...v1.3.13) (2022-03-14)
 
 

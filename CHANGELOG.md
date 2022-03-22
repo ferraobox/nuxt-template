@@ -1,3 +1,45 @@
+## [1.3.14](https://github.com/ferraobox/nuxt-template/compare/v1.3.13...v1.3.14) (2022-03-21)
+
+
+### Bug Fixes
+
+* bump stripe from 8.209.0 to 8.210.0 ([#67](https://github.com/ferraobox/nuxt-template/issues/67)) ([df40c88](https://github.com/ferraobox/nuxt-template/commit/df40c880d4f21fe3386f3baf55746288e64db0ef))
+
+## [1.3.13](https://github.com/ferraobox/nuxt-template/compare/v1.3.12...v1.3.13) (2022-03-14)
+
+
+### Bug Fixes
+
+* bump stripe from 8.208.0 to 8.209.0 ([#62](https://github.com/ferraobox/nuxt-template/issues/62)) ([50a50d8](https://github.com/ferraobox/nuxt-template/commit/50a50d8ffe3fbf7b104b10ed4d6ae9def1866428))
+
+## [1.3.12](https://github.com/ferraobox/nuxt-template/compare/v1.3.11...v1.3.12) (2022-03-10)
+
+
+### Bug Fixes
+
+* bump stripe from 8.207.0 to 8.208.0 ([#61](https://github.com/ferraobox/nuxt-template/issues/61)) ([72dba15](https://github.com/ferraobox/nuxt-template/commit/72dba15e166e4e6b0c531497270348ace027d4bd))
+
+## [1.3.11](https://github.com/ferraobox/nuxt-template/compare/v1.3.10...v1.3.11) (2022-03-03)
+
+
+### Bug Fixes
+
+* bump stripe from 8.206.0 to 8.207.0 ([#58](https://github.com/ferraobox/nuxt-template/issues/58)) ([b2c8e55](https://github.com/ferraobox/nuxt-template/commit/b2c8e557657119e05e57f3e82171e33d9ae1a4cf))
+
+## [1.3.10](https://github.com/ferraobox/nuxt-template/compare/v1.3.9...v1.3.10) (2022-03-02)
+
+
+### Bug Fixes
+
+* bump stripe from 8.205.0 to 8.206.0 ([#57](https://github.com/ferraobox/nuxt-template/issues/57)) ([0d32269](https://github.com/ferraobox/nuxt-template/commit/0d3226982450faf0b61975e7fb7615296a0efd5b))
+
+## [1.3.9](https://github.com/ferraobox/nuxt-template/compare/v1.3.8...v1.3.9) (2022-02-28)
+
+
+### Bug Fixes
+
+* bump stripe from 8.204.0 to 8.205.0 ([#53](https://github.com/ferraobox/nuxt-template/issues/53)) ([f341654](https://github.com/ferraobox/nuxt-template/commit/f341654afc6d124ed24962d03b4496510ec148c5))
+
 ## [1.3.8](https://github.com/ferraobox/nuxt-template/compare/v1.3.7...v1.3.8) (2022-02-24)
 
 

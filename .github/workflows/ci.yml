@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         id: cache-node-modules
         with:
           path: './node_modules'
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
@@ -49,11 +49,11 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: .nuxt
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
@@ -67,11 +67,11 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: .nuxt
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}
@@ -85,11 +85,11 @@ jobs:
       - uses: actions/setup-node@v2.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: './node_modules'
           key: yarn-lock-${{ env.NODE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: .nuxt
           key: nuxt-${{ env.NODE_VERSION }}-${{ github.sha }}

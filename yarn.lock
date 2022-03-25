@@ -3554,10 +3554,10 @@ cloudinary-core@^2.10.2, cloudinary-core@^2.10.3, cloudinary-core@^2.11.3:
   resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.12.3.tgz#6482e472944214ff905c4852da0a4afce14dec2b"
   integrity sha512-Ll4eDzcrIVn4zCttMh3Mdi+KNz07p5EEjBT2PQSRx8Eok1lKPt3uBBenOk/w88RKK3B8SFIWcEe/mN4BHQ0p8A==
 
-cloudinary-vue@^1.1.2, cloudinary-vue@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/cloudinary-vue/-/cloudinary-vue-1.2.3.tgz#bed730efb4d2ba7d1e2a866a9b085031d764ed88"
-  integrity sha512-KC3FQkfO2CW2kN6jCBQGX1k+s9hVW3YWF0IUS4Osbo+DK8/OSDXQ6iNy0NX2275wVTW5HXCCcXVq0gqOH5myfg==
+cloudinary-vue@^1.1.2, cloudinary-vue@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/cloudinary-vue/-/cloudinary-vue-1.2.4.tgz#257e1efdfa306d3cacb8460fe08a82f694bd7298"
+  integrity sha512-wHBwxEXQGv7nbQUL7pQITGVeauxPK3CwHllAcIfQpPIdEa8f5F8jIyk6z/bG5rMeZV2NBah0h9lfHDMEv9v2PA==
   dependencies:
     cloudinary-core "^2.10.3"
 

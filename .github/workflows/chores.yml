@@ -13,7 +13,7 @@ jobs:
         id: dependabot-metadata
         with:
           github-token: ${{ secrets.NUXT_PKG_TOKEN }}
-      - uses: hmarr/auto-approve-action@v2.1.0
+      - uses: hmarr/auto-approve-action@v2.2.0
         if: steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major'
         with:
           github-token: ${{ secrets.NUXT_PKG_TOKEN }}

@@ -1,3 +1,11 @@
+## [1.3.20](https://github.com/ferraobox/nuxt-template/compare/v1.3.19...v1.3.20) (2022-04-04)
+
+
+### Bug Fixes
+
+* bump body-parser from 1.19.2 to 1.20.0 ([#81](https://github.com/ferraobox/nuxt-template/issues/81)) ([7754076](https://github.com/ferraobox/nuxt-template/commit/7754076c43b52f6348a64febf445cb3ebe65db0c))
+* bump stripe from 8.214.0 to 8.215.0 ([#82](https://github.com/ferraobox/nuxt-template/issues/82)) ([cee0837](https://github.com/ferraobox/nuxt-template/commit/cee083789fc6e4f3ba61444708009baaa77f245f))
+
 ## [1.3.19](https://github.com/ferraobox/nuxt-template/compare/v1.3.18...v1.3.19) (2022-03-31)
 
 

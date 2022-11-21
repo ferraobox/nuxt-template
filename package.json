@@ -87,7 +87,7 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "commitizen": "^4.2.4",
-    "eslint": "^8.15.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-jest": "^26.2.2",

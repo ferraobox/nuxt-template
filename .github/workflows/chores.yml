@@ -9,7 +9,7 @@ jobs:
     if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
     runs-on: ubuntu-20.04
     steps:
-      - uses: dependabot/fetch-metadata@v1.3.1
+      - uses: dependabot/fetch-metadata@v1.3.6
         id: dependabot-metadata
         with:
           github-token: ${{ secrets.NUXT_PKG_TOKEN }}
